@@ -4,7 +4,12 @@
         <meta charset="utf-8">
         <title>Timpupk's Webpage</title>
         <style>
-            
+            p {
+                color:white; 
+                text-shadow : hotpink -1px -1px, hotpink -1px 1px, hotpink 1px -1px, hotpink 1px 1px;
+                
+                
+            }
         </style>
     </head>
     <body>
@@ -19,15 +24,18 @@
     var func = function(e) {
         if ( e.keyCode === '13' ) {
             
-            var arr = document.createElement('p');
-            arr.style = 'color:wHite;
-            text-align:center;
-            text-shadow : hotpink 0 0 5px;';
-            document.body.appendChild(arr);
+            
             
         }
     };
-    document.addEventListener('keydown', func);
+    document.addEventListener("keydown", function(){
+    
+    var arr = document.createElement('p');
+            arr.style = '';
+            arr.textContent = '>';
+            document.body.appendChild(arr);
+    
+    });
     
     </script>
     </body>
