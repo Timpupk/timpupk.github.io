@@ -4,27 +4,7 @@
         <meta charset="utf-8">
         <title>New Webpage</title>
         <style>
-            .div {
-                z-index:-1;
-                text-align:center;
-                /*background:blue;*/
-                color:white;
-                position:absolute;
-                top:0;
-                width:20px;
-                /*height:20px;*/
-                border-radius:100%;
-            }
-            h1 {
-                background:#ff0000aa;
-                font-family:arial;
-                position:fixed;
-                width:100%;
-                padding:15px;
-                margin:auto;
-                left:0;
-                top:0;
-            }
+            
         </style>
     </head>
     <body>
@@ -41,46 +21,9 @@
     color:wHite;
     text-align:center;
     text-shadow : hotpink 0 0 5px;'>
-     <span style = 'font-family:Chicle;'></span>><b> hello</b></p>
+     <span style = 'font-family:Chicle;'>hhh</span>><b> hello</b></p>
         
         <script>
-            var num = 0;
-            var bl = document.getElementsByClassName('div');
-            var t = [];
-            
-            var crt = function(e) {
-                
-                t.push(0);
-                var b = document.createElement('img');
-                b.className = 'div';
-                b.src = 'https://www.kasandbox.org/programming-images/seasonal/hopper-partying.png';
-                b.style.left = Math.random() * window.innerWidth - 50 + 'px';
-                document.body.appendChild(b);
-                
-            };
-            
-            window.setInterval(crt, 100);
-            
-            var draw = function() {
-                
-                //document.body.innerHTML += 'why Hopper? ';
-                
-                for (var i = 0; i < t.length; i ++) {
-                t[i]+= 5;
-                
-                bl[i].style.top = t[i] + 'px';
-                
-                if ( bl[i].style.top === 500+'px' ) {
-                    document.body.removeChild(bl[i]);
-                    t.splice(i, 1);
-                }
-                
-                
-                }
-                
-            };
-            
-            window.setInterval(draw, 1000/30);
             
         </script>
     </body>
