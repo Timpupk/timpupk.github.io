@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+        <meta charset="utf-8">
+        <title>New Webpage</title>
+        <style>
+            body {
+                font-family: lucida;
+                color:#ffffff;
+                
+            }
+            h1 {
+                font-size:46px;
+                
+            }
+            
+        </style>
+    </head>
+    <body>
+    
+    <h1 style = 'text-align:center;'>HELLO!</h1>
+
+<!--    
+# # ### #   #   ###
+### ##  #   #   # #
+# # ### ### ### ###
+
+##  # # ###
+### ### ##
+##   #  ###
+-->
+    
+    
+    <!--<canvas id = 'or' style = 'z-index:-1000;-->
+    <!--            position:fixed;-->
+    <!--            top: 0;-->
+    <!--            left: 0;'></canvas>-->
+    
+<script>
+var orange = document.createElement('canvas');
+orange.style = 'z-index:-100; position:fixed; top: 0; left: 0;';
+orange.id = 'or';
+orange.width = window.innerWidth;
+orange.height = window.innerHeight;
+document.body.appendChild(orange);
+
+var or = document.getElementById('or');
+
+
+var sz = [];
+var sp = [];
+var px = [];
+var py = [];
+var tm = 0;
+
+var frameCount = 0;
+
+var Par = function(col, x, y, sz, g, a, w, lf) {
+this.col = col;
+this.x = x;
+this.y = y;
+this.g = g;
+this.a = a;
+this.w = w;
+this.sz=sz;
+this.lf=lf;
+};
+
+Par.prototype.display = function(p) {
+p.save();
+p.translate(this.x, this.y);
+p.fillStyle = this.col;
+p.arc(0, 0, this.sz, this.sz);
+p.restore();
+};
+
+Par.prototype.life = function() {
+this.lf--;
+if ( this.y > innerHeight || this.lf < 0 ) {
+return false;
+} else { return true; }
+};
+
+Par.prototype.move = function() {
+this.y += this.g*-0.1;
+this.g -= this.a*0.1;
+this.x += this.w*0.1;
+};
+
+var a = [];
+
+window.setInterval(function() {
+    var p = or.getContext('2d');
+    p.fillStyle='#ffffff';
+    p.fillRect(0, 0, innerWidth, innerHeight);
+    
+    for ( var i in a ) {
+        if (a[i].life()) {
+        a[i].display(p);
+        a[i].move();
+        }
+    }
+    
+    if (frameCount > 1) {
+    a.push(new Par(
+        'rgb(105, 0, 105, 100)', 
+        200, 
+        200, 
+        random(20, 50), 
+        0, 
+        15, 
+        random(-10, 10), 
+        random(100, 200)
+        ));
+    //col, x, y, g, a, w, sz
+    frameCount = 0;
+    }
+    
+});
+</script>
+    </body>
+</html>
