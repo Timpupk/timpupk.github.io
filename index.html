@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Timpupk's Webpage</title>
-        <style>
-            p {
-                color:white; 
-                text-shadow : hotpink -1px -1px, hotpink -1px 1px, hotpink 1px -1px, hotpink 1px 1px;
-                
-                
-            }
-        </style>
-    </head>
-    <body>
+<body>
+
+<img id = 'img' src = 'https://www.kasandbox.org/programming-images/animals/cat.png' width='60'>
+
+<canvas id="myCanvas" width="60" height="60" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag :(</canvas>
+
+<p id = 'pa'></p>
+
+<script>
+
+var img = document.getElementById('img');
+var p = document.getElementById("pa");
+var c = document.getElementById("myCanvas");
+img.onload = function() {
+var ctx = c.getContext("2d");
+ctx.fillStyle = "red";
+ctx.drawImage(img, 0, 0, c.width, c.height);
+
+
+p.textContent += 'var a = [';
+var j = 0;
+var jl = window.setInterval(function() {
+j += 1;
+var imgData = ctx.getImageData(0, j, c.height, 1);
+p.textContent += '[';
+for ( var i = 0; i < imgData.data.length; i += 4 ) {
+p.textContent += '['+imgData.data[i]+','+imgData.data[i+1]+','+imgData.data[i+2]+','+imgData.data[i+3]+'], ';
+}
+p.textContent += '],\n';
+
+if (j >= myCanvas.width) { clear(); }
+});
+
+function clear() {
+    window.clearInterval(jl);
     
-    
-    <p style = '
-    '>
-        >
-        </p>
-    
-    <script>
-    var func = function(e) {
-        if ( e.keyCode === '13' ) {
-            
-            
-            
-        }
-    };
-    document.addEventListener("keydown", function(){
-    
-    var arr = document.createElement('p');
-            arr.style = '';
-            arr.textContent = '>';
-            document.body.appendChild(arr);
-    
-    });
-    
-    </script>
-    </body>
+    p.textContent += '];\nnoStroke();\nfor ( var i in a ) {\nfor ( var j in a[i] ) {\nfill(a[i][j][0], a[i][j][1], a[i][j][2], a[i][j][3]);\nrect(j*1, i*1, 1, 1);}\n}';
+};
+
+
+
+
+};
+
+</script>
+
+
+</body>
 </html>
