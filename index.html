@@ -64,6 +64,11 @@ var topRight = new a(0.6, -0.005);
 var bottomLeft = new a(0.8, 0.005);
 var bottomRight = new a(0.8, -0.005);
 
+window.setInterval(function() {
+
+c.fillStyle = "rgb(255, 255, 255)";
+c.fillRect(0, 0, 400, 400);
+
 c.save();
 c.translate(200, 200);
 c.scale(0.7, 0.7);
@@ -71,7 +76,39 @@ topLeft.draw(-103, -42, -412, -198, -182, -149, -86, -127);
 topRight.draw(103, -42, 412, -198, 182, -149, 86, -127);
 bottomLeft.draw(103, 42, 412, 198, 182, 149, 86, 127);
 bottomRight.draw(-103, 42, -412, 198, -182, 149, -86, 127);
+
+c.fillStyle = "rgb(92, 0, 0)";
+c.fillRect(-75, -50, 150, 150);
+
+c.fillStyle = "(rgb255, 0, 0)";
+c.beginPath();
+c.moveTo(0, -11);
+c.lineTo(74, -43);
+c.lineTo(74, -22);
+c.lineTo(15, 6);
+c.lineTo(17, 190);
+c.lineTo(100, 61);
+c.bezierCurveTo(85, -11, 89, -35, 100, -100);
+c.lineTo(0, -170);
+c.stroke();
+c.fill();
+
+c.fillStyle = "rgb(171, 0, 0)";
+c.beginPath();
+c.moveTo(0, -11);
+c.lineTo(-74, -43);
+c.lineTo(-74, -22);
+c.lineTo(-15, 6);
+c.lineTo(-17, 190);
+c.lineTo(-100, 61);
+c.bezierCurveTo(-85, -11, -89, -35, -100, -100);
+c.lineTo(0, -170);
+c.stroke();
+c.fill();
+
 c.restore();
+
+});
 </script> 
 
 </body>
