@@ -2,51 +2,58 @@
 <html>
 <body>
 
-<img id = 'img' src = 'https://www.kasandbox.org/programming-images/animals/cat.png' width='60'>
-
-<canvas id="myCanvas" width="60" height="60" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML5 canvas tag :(</canvas>
-
-<p id = 'pa'></p>
+<canvas id="canvas" width="400" height="400" style="border:1px solid #d3d3d3;">
+</canvas>
 
 <script>
 
-var img = document.getElementById('img');
-var p = document.getElementById("pa");
-var c = document.getElementById("myCanvas");
-img.onload = function() {
-var ctx = c.getContext("2d");
-ctx.fillStyle = "red";
-ctx.drawImage(img, 0, 0, c.width, c.height);
+var canvas = document.getElementById("canvas");
+var c = canvas.getContext("2d");
 
+var bpnt = function(e,t,n,r,i){
+    return(1-i)*(1-i)*(1-i)*e+3*(1-i)*(1-i)*i*t+3*(1-i)*i*i*n+i*i*i*r;
+};
+var a = function(start, speed) {
+this.t = start;
+this.speed = speed;
+this.timer = 0;
+};
 
-p.textContent += 'var a = [';
-var j = 0;
-var jl = window.setInterval(function() {
-j += 1;
-var imgData = ctx.getImageData(0, j, c.height, 1);
-p.textContent += '[';
-for ( var i = 0; i < imgData.data.length; i += 4 ) {
-p.textContent += '['+imgData.data[i]+','+imgData.data[i+1]+','+imgData.data[i+2]+','+imgData.data[i+3]+'], ';
+a.prototype.draw = function(x1, y1, cx1, cy1, cx2, cy2, x2, y2) {
+c.beginPath();
+c.moveTo(x1, y1);
+c.bezierCurveTo(cx1, cy1, cx2, cy2, x2, y2);
+c.stroke();
+var x = bpnt(x1, cx1, cx2, x2, this.t);
+var y = bpnt(y1, cy1, cy2, y2, this.t);
+c.fillStyle = "rgb(0, 0, 0)";
+if (this.t > 0 && this.t < 1 ) {
+c.beginPath();
+c.arc(x, y, 9, 0, 360);
+c.fill();
 }
-p.textContent += '],\n';
+this.t += this.speed;
 
-if (j >= myCanvas.width) { clear(); }
-});
-
-function clear() {
-    window.clearInterval(jl);
-    
-    p.textContent += '];\nnoStroke();\nfor ( var i in a ) {\nfor ( var j in a[i] ) {\nfill(a[i][j][0], a[i][j][1], a[i][j][2], a[i][j][3]);\nrect(j*1, i*1, 1, 1);}\n}';
-};
-
-
-
+if ( this.t > 1 ) { this.timer += 1; if(this.timer>20) { this.t = 0; this.timer = 0; } }
+if ( this.t < 0 ) { this.timer += 1; if(this.timer>20) { this.t = 1; this.timer = 0; } }
 
 };
 
-</script>
 
+var topLeft = new a(0.1, 0.005);
+var topRight = new a(0.6, -0.005);
+var bottomLeft = new a(0.8, 0.005);
+var bottomRight = new a(0.8, -0.005);
+
+c.save();
+c.translate(200, 200);
+c.scale(0.7, 0.7);
+topLeft.draw(-103, -42, -412, -198, -182, -149, -86, -127);
+topRight.draw(103, -42, 412, -198, 182, -149, 86, -127);
+bottomLeft.draw(103, 42, 412, 198, 182, 149, 86, 127);
+bottomRight.draw(-103, 42, -412, 198, -182, 149, -86, 127);
+c.restore();
+</script> 
 
 </body>
 </html>
