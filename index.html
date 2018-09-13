@@ -6,7 +6,7 @@
 h1 { 
     text-align:center;
     font-family: 'Bangers', 'Fredoka One', 'Baloo Tammudu';
-    font-size:100px;
+    font-size:10vw;
     transition: text-shadow 1s;
 }
 h1:hover {
@@ -18,14 +18,24 @@ body {
     margin: 0;
     font-family: Arial;
 }
-div {
-    color:#f00;
-}
 .btns {
+    text-shadow: -1px -1px 1px #000, -1px 1px 1px #000;
+    border:none;
+    color:#fff;
+    background:#ccc;
+    outline:none;
     display:block;
-    float:left;
-    width:25%;
+    float:right;
+    width:20%;
+    padding:2%;
 }
+.btns:hover {
+    background:#aaa;
+}
+.btns:active {
+    background:#666;
+}
+
 </style>
 </head>
 <body>
@@ -33,16 +43,19 @@ div {
 <div id = "bar">
 <button class = "btns">Home</button>
 <button class = "btns">About you</button>
-<button class = "btns">Hello</button>
-<button class = "btns">Hello</button>
+<button class = "btns">blank</button>
+<button class = "btns">blank</button>
+<button class = "btns">=</button>
 </div>
 
 <br>
 
-<h1>Spartacles</h1>
+
 
 <canvas id="canvas" width="400" height="400" style="border:1px solid #000; margin:auto; display:block; box-shadow: -1px -1px 10px #555, -1px 1px 10px #555, 1px -1px 10px #555, 1px 1px 10px #555;">
 </canvas>
+
+<h1>Spartacles</h1>
 
 <script>
 var canvas = document.getElementById("canvas");
