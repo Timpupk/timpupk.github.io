@@ -1,62 +1,6 @@
-<!DOCTYPE html> 
 <html>
-<head>
-<link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Bangers|Fredoka+One" rel="stylesheet">
-<style>
-h1 { 
-    text-align:center;
-    font-family: 'Bangers', 'Fredoka One', 'Baloo Tammudu';
-    font-size:10vw;
-    transition: text-shadow 1s;
-}
-h1:hover {
-    text-shadow: -1px -1px 10px #f00, -1px 1px 10px #f00, 1px -1px 10px #f00, 1px 1px 10px #f00;
-}
-
-body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial;
-}
-.btns {
-    text-shadow: -1px -1px 1px #000, -1px 1px 1px #000;
-    border:none;
-    color:#fff;
-    background:#ccc;
-    outline:none;
-    display:block;
-    float:right;
-    width:20%;
-    padding:2%;
-}
-.btns:hover {
-    background:#aaa;
-}
-.btns:active {
-    background:#666;
-}
-
-</style>
-</head>
 <body>
-
-<div id = "bar">
-<button class = "btns">Home</button>
-<button class = "btns">About you</button>
-<button class = "btns">blank</button>
-<button class = "btns">blank</button>
-<button class = "btns">=</button>
-</div>
-
-<br>
-
-
-
-<canvas id="canvas" width="400" height="400" style="border:1px solid #000; margin:auto; display:block; box-shadow: -1px -1px 10px #555, -1px 1px 10px #555, 1px -1px 10px #555, 1px 1px 10px #555;">
-</canvas>
-
-<h1>Spartacles</h1>
-
+<canvas id="canvas" width="400" height="400"></canvas>
 <script>
 var canvas = document.getElementById("canvas");
 var c = canvas.getContext("2d");
@@ -128,6 +72,5 @@ c.fill();
 c.restore();
 });
 </script> 
-
 </body>
 </html>
