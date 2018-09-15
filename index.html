@@ -15,7 +15,7 @@ h1:hover {
 }
 
 body {
-    background:#fff0;
+    background:#aaa;
     height: 100%;
     margin: 0;
     font-family: Arial;
@@ -44,11 +44,10 @@ body {
 }
 
 #body {
+    padding:10%;
     z-index:-1;
     position:absolute;
-    top:9%;
     left:0px;
-    bottom:0px;
     right:0px;
 }
 </style>
@@ -67,7 +66,7 @@ body {
 
 <script>
 
-var cnt = ['<canvas  id="canvas" width="400" height="400"></canvas>', '<br><br><textarea style = "width:50%; height:50%; display:block; margin:auto;"></textarea>'];
+var cnt = ['<canvas  id="canvas" width="400" height="400"></canvas>', '<textarea style = "width:50%; height:50%; display:block; margin:auto;"></textarea>'];
 
 function switcher(one, col) {
     var div = document.getElementById('body');
@@ -79,7 +78,7 @@ function switcher(one, col) {
     else { btn[i].style.background = '#666'; }
     }
     
-    
+    document.getElementById("canvas").contentWindow.location.reload(true);
 };
 
 document.getElementById("bar").children[0].click();
