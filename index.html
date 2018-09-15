@@ -36,14 +36,6 @@ body {
     background:#aaa;
 }
 
-.hover {
-    display:none;
-}
-.active {
-    background:#aaa;
-}
-
-
 #canvas {
     border:1px solid #aaa; margin:auto; display:block;  margin-top: 10%;
 }
@@ -58,23 +50,12 @@ body {
 }
 
 #bar {
+    
 }
 </style>
 </head>
 <body>
-
-
-
 <div id = "body">
-
-<br>
-
-<h2>hello</h2>
-
-<br>
-
-<h1>Spartacles</h1>
-
 </div>
 
 <div id = "bar">
@@ -87,7 +68,7 @@ body {
 
 <script>
 
-var cnt = ['<br><br><br><br><br><br><br>hello', 'hello'];
+var cnt = ['<canvas  id="canvas" width="400" height="400"></canvas>', '<br><br><input style = "width:50%; height:50%; display:block; margin:auto;">'];
 
 function switcher(one, col) {
     var div = document.getElementById('body');
