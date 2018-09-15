@@ -1,7 +1,113 @@
+<!DOCTYPE html> 
 <html>
-<body> 
-<canvas style = "border:1px solid #aaa; margin:auto; display:block;  margin-top: 5%;" id="canvas" width="400" height="400"></canvas>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Bangers|Fredoka+One" rel="stylesheet">
+<style>
+h1 { 
+    color:#fff;
+    text-align:center;
+    font-family: 'Bangers', 'Fredoka One', 'Baloo Tammudu';
+    font-size:10vw;
+    transition: text-shadow 1s;
+}
+h1:hover {
+    text-shadow: -1px -1px 10px #f00, -1px 1px 10px #f00, 1px -1px 10px #f00, 1px 1px 10px #f00;
+}
+
+body {
+    background:#fff0;
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+.btns {
+    border:none;
+    color:#fff;
+    background:#666;
+    outline:none;
+    float:left;
+    width:20%;
+    padding:2%;
+}
+.btns:hover {
+    background:#ccc;
+}
+.btns:active {
+    background:#aaa;
+}
+
+.hover {
+    display:none;
+}
+.active {
+    background:#aaa;
+}
+
+
+#canvas {
+    border:1px solid #aaa; margin:auto; display:block;  margin-top: 10%;
+}
+
+#body {
+    z-index:-1;
+    position:absolute;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+}
+
+#bar {
+}
+</style>
+</head>
+<body>
+
+
+
+<div id = "body">
+
+<br>
+
+<h2>hello</h2>
+
+<br>
+
+<h1>Spartacles</h1>
+
+</div>
+
+<div id = "bar">
+<button onclick = 'switcher(0, "#aaa")' class = "btns">Home</button>
+<button onclick = 'switcher(1, "#aaa")' class = "btns">About You</button>
+<button onclick = 'switcher(2, "#aaa")' class = "btns">blank</button>
+<button onclick = 'switcher(3, "#aaa")' class = "btns">blank</button>
+<button onclick = 'switcher(4, "#aaa")' class = "btns">blank</button>
+</div>
+
 <script>
+
+var cnt = ['<br><br><br><br><br><br><br>hello', 'hello'];
+
+function switcher(one, col) {
+    var div = document.getElementById('body');
+    div.style.background = col;
+    div.innerHTML = cnt[one];
+    var btn = document.getElementById('bar').children;
+    for ( var i = 0; i < btn.length; i ++ ) {
+    if ( i === one ) { btn[i].style.background = col; } 
+    else { btn[i].style.background = '#666'; }
+    }
+    
+    
+};
+
+document.getElementById("bar").children[0].click();
+
+//     ||
+//    \||/
+//logo \/
+
 var canvas = document.getElementById("canvas");
 var c = canvas.getContext("2d");
 var bpnt = function(e,t,n,r,i){
@@ -36,7 +142,7 @@ var bottomRight = new a(0.8, -0.001);
 window.setInterval(function() {
 c.fillStyle = "rgb(255, 255, 255)";
 c.fillRect(0, 0, 400, 400);
-c.save(); 
+c.save();
 c.translate(canvas.width/2, canvas.height/2);
 c.scale(0.7, 0.7);
 topLeft.draw(-103, -42, -412, -198, -182, -149, -86, -127);
@@ -72,5 +178,6 @@ c.fill();
 c.restore();
 });
 </script> 
+
 </body>
 </html>
