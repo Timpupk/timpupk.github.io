@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Bangers|Fredoka+One" rel="stylesheet">
@@ -28,11 +28,14 @@ body {
     float:left;
     width:20%;
     padding:2%;
+    transition:border 0.5s;
 }
 .btns:hover {
+    border:solid grey;
     background:#ccc;
 }
 .btns:active {
+    border:solid darkred;
     background:#aaa;
 }
 
@@ -43,14 +46,10 @@ body {
 #body {
     z-index:-1;
     position:absolute;
-    top:0px;
+    top:9%;
     left:0px;
     bottom:0px;
     right:0px;
-}
-
-#bar {
-    
 }
 </style>
 </head>
@@ -68,7 +67,7 @@ body {
 
 <script>
 
-var cnt = ['<canvas  id="canvas" width="400" height="400"></canvas>', '<br><br><input style = "width:50%; height:50%; display:block; margin:auto;">'];
+var cnt = ['<canvas  id="canvas" width="400" height="400"></canvas>', '<br><br><textarea style = "width:50%; height:50%; display:block; margin:auto;"></textarea>'];
 
 function switcher(one, col) {
     var div = document.getElementById('body');
