@@ -1,20 +1,115 @@
-<!DOCTYPE html>
-<html> 
-    <head>
-        <meta charset="utf-8">
-        <title>New Webpage</title>
-    </head>
-    <body>
+<!DOCTYPE html> 
+<html>
+<head>
+<style>
+h1:hover {
+    animation: blink 1s infinite alternate;
+}
 
-    <canvas id = "logo"></canvas>
+@keyframes blink {
+from{
+}
+to{
+    text-shadow: -2px -2px 10px #f00, -2px 2px 10px #f00, 2px -2px 10px #f00, 2px 2px 10px #f00;}
+}
+to{
+    text-shadow: -0px -0px 10px #f00, -0px 0px 10px #f00, 0px -0px 10px #f00, 0px 0px 10px #f00;}
+}
+</style>
+</head>
+<body>
 
-<script src = 'https://cdn.rawgit.com/Timpupk/Sparticles-Logo/354b60bb/logo.js'></script>
+<h1>Spartacles</h1>
+
+<canvas id="canvas" width="400" height="400" style="border:1px solid #d3d3d3;">
+</canvas>
 
 <script>
 
-logo(400, 0.0015, "logo");
+var canvas = document.getElementById("canvas");
+var c = canvas.getContext("2d");
 
+var bpnt = function(e,t,n,r,i){
+    return(1-i)*(1-i)*(1-i)*e+3*(1-i)*(1-i)*i*t+3*(1-i)*i*i*n+i*i*i*r;
+};
+var a = function(start, speed) {
+this.t = start;
+this.speed = speed;
+this.timer = 0;
+};
+
+a.prototype.draw = function(x1, y1, cx1, cy1, cx2, cy2, x2, y2) {
+c.beginPath();
+c.moveTo(x1, y1);
+c.bezierCurveTo(cx1, cy1, cx2, cy2, x2, y2);
+c.stroke();
+var x = bpnt(x1, cx1, cx2, x2, this.t);
+var y = bpnt(y1, cy1, cy2, y2, this.t);
+c.fillStyle = "rgb(0, 0, 0)";
+if (this.t > 0 && this.t < 1 ) {
+c.beginPath();
+c.arc(x, y, 9, 0, 360);
+c.fill();
+}
+this.t += this.speed;
+
+if ( this.t > 1 ) { this.timer += 1; if(this.timer>20) { this.t = 0; this.timer = 0; } }
+if ( this.t < 0 ) { this.timer += 1; if(this.timer>20) { this.t = 1; this.timer = 0; } }
+
+};
+
+
+var topLeft = new a(0.1, 0.001);
+var topRight = new a(0.6, -0.001);
+var bottomLeft = new a(0.8, 0.001);
+var bottomRight = new a(0.8, -0.001);
+
+window.setInterval(function() {
+
+c.fillStyle = "rgb(255, 255, 255)";
+c.fillRect(0, 0, 400, 400);
+
+c.save();
+c.translate(canvas.width/2, canvas.height/2);
+c.scale(0.7, 0.7);
+topLeft.draw(-103, -42, -412, -198, -182, -149, -86, -127);
+topRight.draw(103, -42, 412, -198, 182, -149, 86, -127);
+bottomLeft.draw(103, 42, 412, 198, 182, 149, 86, 127);
+bottomRight.draw(-103, 42, -412, 198, -182, 149, -86, 127);
+
+c.fillStyle = "rgb(92, 0, 0)";
+c.fillRect(-75, -50, 150, 150);
+
+c.fillStyle = "(rgb255, 0, 0)";
+c.beginPath();
+c.moveTo(0, -11); 
+c.lineTo(74, -43);
+c.lineTo(74, -22);
+c.lineTo(15, 6);
+c.lineTo(17, 190);
+c.lineTo(100, 61);
+c.bezierCurveTo(85, -11, 89, -35, 100, -100);
+c.lineTo(0, -170);
+c.stroke();
+c.fill();
+
+c.fillStyle = "rgb(171, 0, 0)";
+c.beginPath();
+c.moveTo(0, -11);
+c.lineTo(-74, -43);
+c.lineTo(-74, -22);
+c.lineTo(-15, 6);
+c.lineTo(-17, 190);
+c.lineTo(-100, 61);
+c.bezierCurveTo(-85, -11, -89, -35, -100, -100);
+c.lineTo(0, -170);
+c.stroke();
+c.fill();
+
+c.restore();
+
+});
 </script> 
 
-    </body>
+</body>
 </html>
