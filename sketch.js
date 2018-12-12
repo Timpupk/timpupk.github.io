@@ -9,7 +9,7 @@ function preload() {
 function setup() {
   createCanvas(400, 400);
 
-  points = font.textToPoints('Sparticles', 50, 200, 60, {
+  points = font.textToPoints('Text', 50, 200, 60, {
     sampleFactor: 1
   });
 
