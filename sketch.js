@@ -1,4 +1,4 @@
-var v = []; 
+var v = [];
 var font; 
 var points = [];
 
