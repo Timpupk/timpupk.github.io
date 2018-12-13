@@ -9,7 +9,7 @@ function preload() {
 function setup() {
   createCanvas(window.innerWidth, window.innerWidth);
 
-  points = font.textToPoints('EXAMPLE TEXT', width/16+height/16, 200, width/16+height/16, {
+  points = font.textToPoints('TEXT', width/16+height/16, 200, width/16+height/16, {
     sampleFactor: 1
   });
 
