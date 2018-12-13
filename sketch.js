@@ -35,5 +35,5 @@ function draw() {
     if (ve.x == ve.tx && ve.y == ve.ty){ve.m = 0;}else{
       ve.m = map(dist(ve.x, ve.y, ve.tx, ve.ty), 0, width/2+height/2, 0.01, 10);
     }
-  }
+  } 
 } 
