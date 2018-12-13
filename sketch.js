@@ -25,7 +25,7 @@ function draw() {
 
     strokeWeight(ve.sz);
     stroke(200, 0, 0);
-    point(ve.x, ve.y);
+    point(ve.x, ve.y); 
 
     ve.x-=ve.m*sin(ve.a);
     ve.y-=ve.m*cos(ve.a);
