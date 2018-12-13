@@ -7,9 +7,9 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(window.innerWidth, window.innerWidth);
 
-  points = font.textToPoints('Spartacles', 50, 200, 60, {
+  points = font.textToPoints('Spartacles', width/16+height/16, 200, width/16+height/16, {
     sampleFactor: 1
   });
 
