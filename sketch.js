@@ -5,7 +5,7 @@ var points = [];
 function preload() {
   font = loadFont('font.TTF');
 }
-
+ 
 function setup() {
   createCanvas(window.innerWidth, window.innerWidth);
 
