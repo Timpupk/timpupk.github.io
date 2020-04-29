@@ -1,5 +1,5 @@
 var v = [];
-var font; 
+var font;
 var points = [];
 
 function preload() {
