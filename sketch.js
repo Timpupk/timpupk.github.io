@@ -9,7 +9,7 @@ function preload() {
 function setup() {
   createCanvas(window.innerWidth, window.innerWidth);
 
-  points = font.textToPoints('Sparticles', width/16+height/16, 200, 100, {
+  points = font.textToPoints('Blue', width/16+height/16, 200, 100, {
     sampleFactor: 1
   });
 
@@ -24,7 +24,7 @@ function draw() {
     var ve = v[i];
 
     strokeWeight(ve.sz);
-    stroke(200, 0, 0);
+    stroke(20, 20, 200);
     point(ve.x, ve.y); 
 
     ve.x-=ve.m*sin(ve.a);
